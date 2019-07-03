@@ -11,6 +11,7 @@ struct Question {
     var type: ResponseType
     var answers: [Answer]
     
+    /// Все вопросы, ответы и типы ответов
     static var all: [Question] {
         return [
             Question(text: "Что вы покупаете чаще всего?", type: .single, answers: [
@@ -30,6 +31,12 @@ struct Question {
                 Answer(text: "Не очень", type: .melon),
                 Answer(text: "Почему бы и нет", type: .apple),
                 Answer(text: "Обожаю", type: . banana),
+                ]),
+            Question(text: "Любите ли вы пить натуральный сок?", type: .ranged, answers: [
+                Answer(text: "Ненавижу", type: .watermelon),
+                Answer(text: "Не очень", type: .melon),
+                Answer(text: "Почему бы и нет", type: .banana),
+                Answer(text: "Обожаю", type: .apple),
                 ])
         ]
     }
