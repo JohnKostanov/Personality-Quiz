@@ -37,6 +37,14 @@ struct Question {
                 Answer(text: "Не очень", type: .melon),
                 Answer(text: "Почему бы и нет", type: .banana),
                 Answer(text: "Обожаю", type: .apple),
+                ]),
+            Question(text: "Какое фото вам больше нравиться?", type: .image, answers: [
+                Answer(text: "Девочка с бананами", type: .banana),
+                Answer(text: "Девочка с яблоками", type: .apple),
+                Answer(text: "Девочка с дыней", type: .melon),
+                Answer(text: "Девочка с арбузом", type: .watermelon),
+               
+                
                 ])
         ]
     }

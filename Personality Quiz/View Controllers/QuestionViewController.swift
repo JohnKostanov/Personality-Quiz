@@ -22,6 +22,12 @@ class QuestionViewController: UIViewController {
     @IBOutlet var rangedSlider: UISlider!
     @IBOutlet var rangedLabels: [UILabel]!
     
+ 
+    @IBOutlet var imageStackView: UIStackView!
+    @IBOutlet var contentImageView: [UIImageView]!
+    @IBOutlet var imageButtons: [UIButton]!
+    
+    
     @IBOutlet var progressView: UIProgressView!
     
     // MARK: - Properties
@@ -54,6 +60,7 @@ class QuestionViewController: UIViewController {
         singleStackView.isHidden = true
         multipleStackView.isHidden = true
         rangeStackView.isHidden = true
+        imageStackView.isHidden = true
         
        let progress = Float(questionIndex) / Float(questions.count)
         
@@ -68,6 +75,8 @@ class QuestionViewController: UIViewController {
             updateMultipleStack(with: currentAnswers)
         case .ranged:
             updateRangedStack(with: currentAnswers)
+        case .image:
+            updateImageStackView(with: currentAnswers)
         }
         
     }
@@ -99,6 +108,14 @@ class QuestionViewController: UIViewController {
         rangedLabels.first?.text = answers.first?.text
         rangedLabels.last?.text = answers.last?.text
         rangeStackView.isHidden = false
+    }
+    
+    func updateImageStackView(with answers: [Answer]) {
+        imageStackView.isHidden = false
+        
+        for (button, answer) in zip(imageButtons, answers) {
+            button.setTitle(answer.text, for: [])
+        }
     }
     
     /// Увеличивает индекс вопроса на 1 и переходит на следующий вопрос либо на экран результата
@@ -159,5 +176,14 @@ class QuestionViewController: UIViewController {
         
         nextQuestion()
     }
+    
+    @IBAction func imageButtonPressed(_ sender: UIButton) {
+        guard let answerIndex = imageButtons.firstIndex(of: sender) else { return }
+        let answer = currentAnswers[answerIndex]
+        answerChosen.append(answer)
+        
+        nextQuestion()
+    }
+    
     
 }

@@ -27,7 +27,7 @@ class ResultViewController: UIViewController {
         fruitTypes.forEach { fruitType in
             fruitCount[fruitType] = (fruitCount[fruitType] ?? 0) + 1
         }
-        print(#line, #function, fruitCount)
+        //print(#line, #function, fruitCount)
         let sortedCount = fruitCount.sorted { $0.value > $1.value }
         let fruit = sortedCount.first!.key
         

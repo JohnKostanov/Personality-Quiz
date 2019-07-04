@@ -10,4 +10,5 @@ struct Answer {
     var text: String
     var type: FruitType
     
+    
 }

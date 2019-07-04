@@ -7,5 +7,5 @@
 //
 
 enum ResponseType {
-    case single, multiple, ranged
+    case single, multiple, ranged, image
 }
